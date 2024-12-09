@@ -32,7 +32,7 @@ void display(long double sum, long int currentLoop, long int totalLoops) {
 int main() {
     long double save = 0;
     long int samplesize;
-    int maxnum;
+    int maxnum; int iterator=0;
     char choice;
 
     srand(static_cast<unsigned>(time(nullptr)));
@@ -49,11 +49,16 @@ int main() {
 
     choice = getChar();
 
+    iterator = samplesize/100;
+
+
     for (long int i = 0; i < samplesize; ++i) {
         random[i] = 1 + (rand() % maxnum);
         save += random[i];
-        display(save, i, samplesize);
+
+        if (i % iterator == 0) { display(save, i, samplesize);}
     }
+
     if (choice == 'y'){
         for (long int i = 0; i < samplesize; ++i) {cout<<" "<<random[i]<<" ";}
 }
@@ -62,6 +67,5 @@ int main() {
          << "Sample size: " << samplesize << endl
          << "Accumulated mass: " << save << endl
          << "Average: " << save / samplesize << endl;
-
     return 0;
 }
