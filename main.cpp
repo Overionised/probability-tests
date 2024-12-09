@@ -49,7 +49,7 @@ int main() {
 
     choice = getChar();
 
-    iterator = samplesize/100;
+    iterator = samplesize/100; //not to do calculations it every iteration
 
 
     for (long int i = 0; i < samplesize; ++i) {
